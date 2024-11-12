@@ -49,11 +49,14 @@ func main() {
 }
 
 func dataSource(numb chan int) {
-
+	menu := fmt.Sprintf("Menu:\n \"Menu\" - open the menu\n \"buffer\" - enter the buffer value\n \"timer\" - enter the timer value\n \"exit\" - exiting the program\n")
+	fmt.Print(menu)
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		scanner.Scan()
 		switch scanner.Text() {
+		case "menu":
+			fmt.Print(menu)
 		case "exit":
 			fmt.Println("exit from the program")
 			os.Exit(0)
